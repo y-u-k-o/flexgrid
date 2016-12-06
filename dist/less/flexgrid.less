@@ -1,0 +1,38 @@
+//
+// Grid system
+//----------------------------------------------------------------------
+
+// Requires mixin: grid-mixin.less
+@import "mixins/grid-mixin.less";
+
+// Define the breakpoints at which your layout will change, adapting to different screen sizes.
+@screen-xs: 380px;  // Extra small screen / phone
+@screen-sm: 480px;  // Small screen / tablet
+@screen-md: 768px;  // Medium screen / desktop
+@screen-lg: 992px;  // Large screen / wide desktop
+@screen-xl: 1200px; // Extra Large screen / wide desktop
+
+@grid-types: sm md lg xl; // Grid Types (add or remove to build needed grid)
+
+.row {
+  //----------------------------------------------------------------------
+  // Row
+  //
+  // Build Grid Rows.
+
+  .grid-row();
+
+  //----------------------------------------------------------------------
+  // Columns
+  //
+  // Common styles for all columns
+
+  .make-grid-columns(xs); // Default xs
+
+  .for(@grid-types); .-each(@type) {
+    @screen: 'screen-@{type}';
+    @media (min-width: @@screen) {
+      .make-grid-columns(@type);
+    }
+  }
+}

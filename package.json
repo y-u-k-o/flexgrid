@@ -1,0 +1,27 @@
+{
+  "name": "flexgrid",
+  "version": "1.0.0",
+  "description": "Grid based on flex",
+  "main": "Gruntfile.js",
+  "keywords": [
+    "flex",
+    "flexbox",
+    "grid"
+  ],
+  "author": {
+    "name": "Yuriy Kozlovskiy",
+    "email": "yukozlovskiy@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yukozlovskiy/flexgrid"
+  },
+  "dependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-less": "~0.9.0",
+    "grunt-contrib-htmlmin": "^0.1.3",
+    "grunt-contrib-watch": "^0.5.3",
+    "grunt-contrib-cssmin": "~0.6.2"
+  }
+}

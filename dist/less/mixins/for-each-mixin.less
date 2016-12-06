@@ -1,0 +1,79 @@
+//
+// For-Each Mixin
+//
+// https://github.com/seven-phases-max/less.curious/blob/master/src/for.less
+
+//----------------------------------------------------------------------
+// .for
+//
+// https://github.com/seven-phases-max/less.curious/blob/master/articles/generic-for.md
+.for(@i, @n) {.-each(@i)}
+.for(@n)     when (isnumber(@n)) {.for(1, @n)}
+.for(@i, @n) when not (@i = @n)  {
+  .for((@i + (@n - @i) / abs(@n - @i)), @n);
+}
+
+//----------------------------------------------------------------------
+// .for-each
+//
+// https://github.com/seven-phases-max/less.curious/blob/master/articles/for-each.md
+.for(@array)   when (default()) {.for-impl_(length(@array))}
+.for-impl_(@i) when (@i > 1)    {.for-impl_((@i - 1))}
+.for-impl_(@i) when (@i > 0)    {.-each(extract(@array, @i))}
+
+
+//----------------------------------------------------------------------
+// Generic for Structure in Less Using Mixins
+
+//Less code:
+//
+//@grid-columns: 5;
+//
+//.column {
+//  .for(@grid-columns); .-each(@i) {
+//     &-@{i} {width: (@i / @grid-columns * 100%)}
+//  }
+//}
+
+//CSS output:
+//
+//.column-1 {
+//  width: 20%;
+//}
+//.column-2 {
+//  width: 40%;
+//}
+//.column-3 {
+//  width: 60%;
+//}
+//.column-4 {
+//  width: 80%;
+//}
+//.column-5 {
+//  width: 100%;
+//}
+
+//----------------------------------------------------------------------
+// Generic for-each Structure in Less Using Mixins
+
+//Less code:
+//
+//#icon {
+//  .for(ok cancel error); .-each(@name) {
+//    &-@{name} {
+//      background-image: url("../images/@{name}.png");
+//    }
+//  }
+//}
+
+//CSS output:
+//
+//#icon-ok {
+//  background-image: url("../images/ok.png");
+//}
+//#icon-cancel {
+//  background-image: url("../images/cancel.png");
+//}
+//#icon-error {
+//  background-image: url("../images/error.png");
+//}

@@ -1,0 +1,224 @@
+//
+// Grid Mixin
+//----------------------------------------------------------------------
+
+// Requires mixin: for-each-mixin.less
+// Requires mixin: flexbox-mixin.less
+@import "for-each-mixin.less";
+@import "flexbox-mixin.less";
+
+@grid-columns: 12;   // Grid Columns
+@grid-gutter : 10px; // Grid Margin
+@grid-type   : xs;   // Grid Type
+
+//----------------------------------------------------------------------
+// Row
+//
+// Creates a wrapper for a series of columns
+.grid-row() {
+  .display-flex();
+  .flex-flow(row, wrap);
+  .flex(0, 1, auto);
+  box-sizing: border-box;
+  margin-left: ceil(@grid-gutter / -2);
+  margin-right: floor(@grid-gutter / -2);
+
+  //--------------------------------------------------------------------
+  // Add Additional Grid Properties
+
+  // Grid No Margin
+  &.row-no-gutter {
+    margin-left: 0;
+    margin-right: 0;
+
+    & > [class*='col-'] {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  // Grid Equal Column Height
+  &.row-equal-height > [class*='col-'] {
+    .display-flex();
+  }
+
+  // Grid Reversing
+  // _________________________
+  // |       |       |       |
+  // |   C   |   B   |   A   |
+  // |_______|_______|_______|
+
+  &.row-reverse {
+    .flex-direction(row-reverse);
+  }
+
+  // Grid Alignment - Start
+  // _________________________
+  // |       |               |
+  // |   x   |               |
+  // |_______|_______________|
+
+  &.row-start {
+    .justify-content(flex-start);
+    text-align: start;
+  }
+
+  // Grid Alignment - End
+  // _________________________
+  // |               |       |
+  // |               |   x   |
+  // |_______________|_______|
+
+  &.row-end {
+    .justify-content(flex-end);
+    text-align: end;
+  }
+
+  // Grid Alignment - Center
+  // _________________________
+  // |       |       |       |
+  // |       |   x   |       |
+  // |_______|_______|_______|
+
+  &.row-center {
+    .justify-content(center);
+    text-align: center;
+  }
+
+  // Grid Alignment - Top
+  // _________________________
+  // |       |       |       |
+  // |_______|       |_______|
+  //         |_______|
+
+  &.row-top {
+    .align-items(flex-start);
+  }
+
+  // Grid Alignment - Center
+  //         _________
+  //  _______|       |_______
+  // |_______|       |_______|
+  //         |_______|
+
+  &.row-middle {
+    .align-items(center);
+  }
+
+  // Grid Alignment - Bottom
+  //         _________
+  //  _______|       |_______
+  // |       |       |       |
+  // |_______|_______|_______|
+
+  &.row-bottom {
+    .align-items(flex-end);
+  }
+
+  // Grid Distribution - Around
+  // ______________________________
+  // |  ______   ______   ______  |
+  // |  |____|   |____|   |____|  |
+  // |____________________________|
+
+  &.row-around {
+    .justify-content(space-around);
+  }
+
+  // Grid Distribution - Between
+  // ______________________________
+  // |______     ______     ______|
+  // ||____|     |____|     |____||
+  // |____________________________|
+
+  &.row-between {
+    .justify-content(space-between);
+  }
+
+  // Common properties for all breakpoints
+  & > [class*='col-'] {
+    box-sizing: border-box;
+    position: relative;
+    min-height: 1px; // Prevent collapsing
+    width: 100%;
+    .flex(0,0,auto);
+    padding-left: ceil(@grid-gutter / 2);
+    padding-right: floor(@grid-gutter / 2);
+
+    //--------------------------------------------------------------------
+    // Add Additional Grid Properties
+
+    &.col-reverse {
+      .flex-direction(column-reverse);
+    }
+
+    // Col Ordering - First
+    // ____________________________
+    // |          |       |       |
+    // | B(first) |   A   |   C   |
+    // |__________|_______|_______|
+
+    .col-first {
+      .flex-order(-1);
+    }
+
+    // Col Ordering - Last
+    // ____________________________
+    // |       |       |          |
+    // |   B   |   C   |  A(last) |
+    // |_______|_______|__________|
+
+    .col-last {
+      .flex-order(1);
+    }
+  }
+}
+
+//----------------------------------------------------------------------
+// Columns
+//
+// Used only to generate the correct number of grid classes given any value of `@grid-columns`.
+.make-grid-columns(@type: @grid-type, @columns: @grid-columns) {
+  //----------------------------------------------------------------------
+  // Base Column Style (col-xs, col-sm, col-md)
+
+  .col-@{type} {
+    .flex-grow(1);
+    .flex-basis(0);
+    max-width: 100%;
+  }
+
+  // CSS output:
+  //
+  //.col-xs {
+  //  -webkit-box-flex: 1;
+  //  -webkit-flex-grow: 1;
+  //  -ms-flex-positive: 1;
+  //  flex-grow: 1;
+  //  -webkit-flex-basis: 0;
+  //  -ms-flex-preferred-size: 0;
+  //  flex-basis: 0;
+  //  max-width: 100%;
+  //}
+
+  //----------------------------------------------------------------------
+  // Index Column Style (col-xs-1...col-xs-12)
+
+  .col-@{type} {
+    .for(@columns);
+    .-each(@i) {
+      &-@{i} {
+        .flex-basis(percentage(@i / @columns));
+        max-width: percentage(@i / @columns);
+      }
+    }
+  }
+  // CSS output:
+  //
+  //.col-xs-1 {
+  //  -webkit-flex-basis: 8.33333333%;
+  //  -ms-flex-preferred-size: 8.33333333%;
+  //  flex-basis: 8.33333333%;
+  //  max-width: 8.33333333%;
+  //}
+}
