@@ -3,7 +3,7 @@ Grid based on display flex CSS property.
 
 ## Example
 
-Check out the [live demo](https://codepen.io/yukozlovskiy/full/QGrbBN/) or take a look at the [example folder].
+Check out the [live demo](https://codepen.io/yukozlovskiy/full/QGrbBN/) or take a look at the [example folder](https://github.com/yukozlovskiy/flexgrid/tree/master/example).
 
 ## How to use
 
@@ -21,8 +21,8 @@ FlexGrid uses classes like Bootstrap.
 ```
 
 ## css
-* [Development]
-* [Production]
+* [Development](https://raw.githubusercontent.com/yukozlovskiy/flexgrid/master/dist/css/flexgrid.css)
+* [Production](https://raw.githubusercontent.com/yukozlovskiy/flexgrid/master/dist/css/flexgrid.min.css)
 
 ```
 <link rel="stylesheet" href="flexgrid.min.css" type="text/css">
