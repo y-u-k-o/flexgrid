@@ -52,7 +52,7 @@
     .flex-direction(row-reverse);
   }
 
-  // Grid Alignment - Start
+  // Horizontal Alignment - Start
   // _________________________
   // |       |               |
   // |   x   |               |
@@ -63,7 +63,7 @@
     text-align: start;
   }
 
-  // Grid Alignment - End
+  // Horizontal Alignment - End
   // _________________________
   // |               |       |
   // |               |   x   |
@@ -74,7 +74,7 @@
     text-align: end;
   }
 
-  // Grid Alignment - Center
+  // Horizontal Alignment - Center
   // _________________________
   // |       |       |       |
   // |       |   x   |       |
@@ -85,37 +85,7 @@
     text-align: center;
   }
 
-  // Grid Alignment - Top
-  // _________________________
-  // |       |       |       |
-  // |_______|       |_______|
-  //         |_______|
-
-  &.row-top {
-    .align-items(flex-start);
-  }
-
-  // Grid Alignment - Center
-  //         _________
-  //  _______|       |_______
-  // |_______|       |_______|
-  //         |_______|
-
-  &.row-middle {
-    .align-items(center);
-  }
-
-  // Grid Alignment - Bottom
-  //         _________
-  //  _______|       |_______
-  // |       |       |       |
-  // |_______|_______|_______|
-
-  &.row-bottom {
-    .align-items(flex-end);
-  }
-
-  // Grid Distribution - Around
+  // Horizontal Alignment - Around
   // ______________________________
   // |  ______   ______   ______  |
   // |  |____|   |____|   |____|  |
@@ -125,7 +95,7 @@
     .justify-content(space-around);
   }
 
-  // Grid Distribution - Between
+  // Horizontal Alignment - Between
   // ______________________________
   // |______     ______     ______|
   // ||____|     |____|     |____||
@@ -133,6 +103,37 @@
 
   &.row-between {
     .justify-content(space-between);
+  }
+
+
+  // Vertical Alignment - Top
+  // _________________________
+  // |       |       |       |
+  // |_______|       |_______|
+  //         |_______|
+
+  &.row-top {
+    .align-items(flex-start);
+  }
+
+  // Vertical Alignment - Middle
+  //         _________
+  //  _______|       |_______
+  // |_______|       |_______|
+  //         |_______|
+
+  &.row-middle {
+    .align-items(center);
+  }
+
+  // Vertical Alignment - Bottom
+  //         _________
+  //  _______|       |_______
+  // |       |       |       |
+  // |_______|_______|_______|
+
+  &.row-bottom {
+    .align-items(flex-end);
   }
 
   // Common properties for all breakpoints

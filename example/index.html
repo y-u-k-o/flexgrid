@@ -37,26 +37,11 @@
         <thead>
         <tr>
           <th></th>
-          <th class="text-xs-center">
-            Extra small (Default)<br/>
-            <small>&lt;576px</small>
-          </th>
-          <th class="text-xs-center">
-            Small<br/>
-            <small>≥576px</small>
-          </th>
-          <th class="text-xs-center">
-            Medium<br/>
-            <small>≥768px</small>
-          </th>
-          <th class="text-xs-center">
-            Large<br/>
-            <small>≥992px</small>
-          </th>
-          <th class="text-xs-center">
-            Extra large<br/>
-            <small>≥1200px</small>
-          </th>
+          <th>Extra small (Default)<br/><small>&lt;576px</small></th>
+          <th>Small<br/><small>≥576px</small></th>
+          <th>Medium<br/><small>≥768px</small></th>
+          <th>Large<br/><small>≥992px</small></th>
+          <th>Extra large<br/><small>≥1200px</small></th>
         </tr>
         </thead>
         <tbody>
@@ -93,14 +78,102 @@
       </table>
     </section>
     <section class="page-section">
-      <h2>Simple Syntax</h2>
-      <p>All you need to remember is row, column, content.</p>
+      <h2>HTML Syntax</h2>
+      <p>FlexGrid uses the same classes as Bootstrap. All you need to keep HTML syntax in that way: row, column, content.</p>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="content">1</div>
+        </div>
+      </div>
       <div class="row">
         <div class="col-xs-6">
-          <div class="content">col-xs-6</div>
+          <div class="content">1/2</div>
         </div>
         <div class="col-xs-6">
-          <div class="content">col-xs-6</div>
+          <div class="content">1/2</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4">
+          <div class="content">1/3</div>
+        </div>
+        <div class="col-xs-4">
+          <div class="content">1/3</div>
+        </div>
+        <div class="col-xs-4">
+          <div class="content">1/3</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">
+          <div class="content">1/4</div>
+        </div>
+        <div class="col-xs-3">
+          <div class="content">1/4</div>
+        </div>
+        <div class="col-xs-3">
+          <div class="content">1/4</div>
+        </div>
+        <div class="col-xs-3">
+          <div class="content">1/4</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-2">
+          <div class="content">1/6</div>
+        </div>
+        <div class="col-xs-2">
+          <div class="content">1/6</div>
+        </div>
+        <div class="col-xs-2">
+          <div class="content">1/6</div>
+        </div>
+        <div class="col-xs-2">
+          <div class="content">1/6</div>
+        </div>
+        <div class="col-xs-2">
+          <div class="content">1/6</div>
+        </div>
+        <div class="col-xs-2">
+          <div class="content">1/6</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-1">
+          <div class="content">1/12</div>
+        </div>
+        <div class="col-xs-1">
+          <div class="content">1/12</div>
+        </div>
+        <div class="col-xs-1">
+          <div class="content">1/12</div>
+        </div>
+        <div class="col-xs-1">
+          <div class="content">1/12</div>
+        </div>
+        <div class="col-xs-1">
+          <div class="content">1/12</div>
+        </div>
+        <div class="col-xs-1">
+          <div class="content">1/12</div>
+        </div>
+        <div class="col-xs-1">
+          <div class="content">1/12</div>
+        </div>
+        <div class="col-xs-1">
+          <div class="content">1/12</div>
+        </div>
+        <div class="col-xs-1">
+          <div class="content">1/12</div>
+        </div>
+        <div class="col-xs-1">
+          <div class="content">1/12</div>
+        </div>
+        <div class="col-xs-1">
+          <div class="content">1/12</div>
+        </div>
+        <div class="col-xs-1">
+          <div class="content">1/12</div>
         </div>
       </div>
       <pre><code>&lt;div class="row">
@@ -114,9 +187,8 @@
     </section>
     <section class="page-section">
       <h2>Responsive</h2>
-      <p>Responsive modifiers enable specifying different column sizes, alignment and distribution at xs, sm, md viewport widths.
-        Responsive Grids work by adding media classes to the Grid cells or containers. When those media values are met, the grids automatically adjust accordingly.
-      </p>
+      <p>Responsive grid works by adding media classes to the grid cells (xs, sm, md, etc.).
+        When those media values are met, the grids automatically adjust accordingly.</p>
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-3">
           <div class="content">col-xs-12 col-sm-6 col-md-3</div>
@@ -145,103 +217,47 @@
         </div>
       </div>
       <pre><code>&lt;div class="row">
-    &lt;div class="col-xs-12 col-sm-10 col-md-8">
+    &lt;div class="col-xs-6 col-sm-10 col-md-8">
+        &lt;div class="content">Responsive&lt;/div>
+    &lt;/div>
+    &lt;div class="col-xs-6 col-sm-2 col-md-4">
         &lt;div class="content">Responsive&lt;/div>
     &lt;/div>
 &lt;/div></code></pre>
     </section>
     <section class="page-section">
-      <h2>Fluid</h2>
-      <p>Percent based widths allow fluid resizing of columns and rows.</p>
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="content">col-xs-12</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-1">
-          <div class="content"></div>
-        </div>
-        <div class="col-xs-11">
-          <div class="content">col-xs-11</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-2">
-          <div class="content">col-xs-2</div>
-        </div>
-        <div class="col-xs-10">
-          <div class="content">col-xs-10</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-3">
-          <div class="content">col-xs-3</div>
-        </div>
-        <div class="col-xs-9">
-          <div class="content">col-xs-9</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-4">
-          <div class="content">col-xs-4</div>
-        </div>
-        <div class="col-xs-8">
-          <div class="content">col-xs-8</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-5">
-          <div class="content">col-xs-5</div>
-        </div>
-        <div class="col-xs-7">
-          <div class="content">col-xs-7</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-6">
-          <div class="content">col-xs-6</div>
-        </div>
-        <div class="col-xs-6">
-          <div class="content">col-xs-6</div>
-        </div>
-      </div><pre><code>.col-xs-6 {
-    -webkit-flex-basis: 50%;
-    -ms-flex-preferred-size: 50%;
-    flex-basis: 50%;
-    max-width: 50%;
-}</code></pre>
-    </section>
-    <section class="page-section">
       <h2>Auto Width</h2>
-      <p>Add any number of auto sizing columns to a row. Let the grid figure it out.</p>
+      <p>You can set the width of one column and the others will automatically resize around it.</p>
       <div class="row">
         <div class="col-xs">
-          <div class="content">col-xs</div>
+          <div class="content">col-xs (Auto)</div>
         </div>
         <div class="col-xs">
-          <div class="content">col-xs</div>
+          <div class="content">col-xs (Auto)</div>
         </div>
       </div>
       <div class="row">
         <div class="col-xs">
-          <div class="content">col-xs</div>
+          <div class="content">col-xs (Auto)</div>
+        </div>
+        <div class="col-xs-6">
+          <div class="content">col-xs-6 (50%)</div>
         </div>
         <div class="col-xs">
-          <div class="content">col-xs</div>
-        </div>
-        <div class="col-xs">
-          <div class="content">col-xs</div>
+          <div class="content">col-xs (Auto)</div>
         </div>
       </div><pre><code>&lt;div class="row">
+    &lt;div class="col-xs">
+        &lt;div class="content">Auto&lt;/div>
+    &lt;/div>
     &lt;div class="col-xs">
         &lt;div class="content">Auto&lt;/div>
     &lt;/div>
 &lt;/div></code></pre>
     </section>
     <section class="page-section">
-      <h2>Nested Rows</h2>
-      <p>Nest rows inside rows.</p>
+      <h2>Nesting</h2>
+      <p>Grid components are infinitely nestable inside of other grid components.</p>
       <div class="row">
         <div class="col-xs-7">
           <div class="content content-container">
@@ -345,8 +361,8 @@
 &lt;/div></code></pre>
     </section>
     <section class="page-section">
-      <h2>Alignment</h2>
-      <p>Add classes to align elements to the start or end of a row as well as the top, bottom, or center of a column</p>
+      <h2>Horizontal alignment</h2>
+      <p>FlexGrid properties for horizontal alignment. Add classes to align elements.</p>
       <h3><code>.row-start</code></h3>
       <div class="row">
         <div class="col-xs-12">
@@ -392,12 +408,75 @@
             </div>
           </div>
         </div>
-      </div><pre><code>&lt;div class="row row-end">
+      </div>
+      <pre><code>&lt;div class="row row-end">
     &lt;div class="col-xs-6">
         &lt;div class="content">End&lt;/div>
     &lt;/div>
 &lt;/div>
 </code></pre>
+        <h3><code>.row-around</code></h3>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="content content-container">
+              <div class="row row-around">
+                <div class="col-xs-2">
+                  <div class="content"></div>
+                </div>
+                <div class="col-xs-2">
+                  <div class="content"></div>
+                </div>
+                <div class="col-xs-2">
+                  <div class="content"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><pre><code>&lt;div class="row row-around">
+    &lt;div class="col-xs-2">
+        &lt;div class="content">Around&lt;/div>
+    &lt;/div>
+    &lt;div class="col-xs-2">
+        &lt;div class="content">Around&lt;/div>
+    &lt;/div>
+    &lt;div class="col-xs-2">
+        &lt;div class="content">Around&lt;/div>
+    &lt;/div>
+&lt;/div>
+</code></pre>
+        <h3><code>.row-between</code></h3>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="content content-container">
+              <div class="row row-between">
+                <div class="col-xs-2">
+                  <div class="content"></div>
+                </div>
+                <div class="col-xs-2">
+                  <div class="content"></div>
+                </div>
+                <div class="col-xs-2">
+                  <div class="content"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><pre><code>&lt;div class="row row-between">
+    &lt;div class="col-xs-2">
+        &lt;div class="content">Between&lt;/div>
+    &lt;/div>
+    &lt;div class="col-xs-2">
+        &lt;div class="content"Between&lt;/div>
+    &lt;/div>
+    &lt;div class="col-xs-2">
+        &lt;div class="content">Between&lt;/div>
+    &lt;/div>
+&lt;/div>
+</code></pre>
+    </section>
+    <section class="page-section">
+      <h2>Vertical alignment</h2>
+      <p>FlexGrid properties for vertical alignment. Add classes to align elements.</p>
       <h3><code>.row-top</code></h3>
       <div class="row row-top">
         <div class="col-xs-6">
@@ -437,68 +516,6 @@
       </div><pre><code>&lt;div class="row row-bottom">
     &lt;div class="col-xs-6">
         &lt;div class="content">Bottom&lt;/div>
-    &lt;/div>
-&lt;/div>
-</code></pre>
-    </section>
-    <section class="page-section">
-      <h2>Distribution</h2>
-      <p>Add classes to distribute the contents of a row or column.</p>
-      <h3><code>.row-around</code></h3>
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="content content-container">
-            <div class="row row-around">
-              <div class="col-xs-2">
-                <div class="content"></div>
-              </div>
-              <div class="col-xs-2">
-                <div class="content"></div>
-              </div>
-              <div class="col-xs-2">
-                <div class="content"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div><pre><code>&lt;div class="row row-around">
-    &lt;div class="col-xs-2">
-        &lt;div class="content">Around&lt;/div>
-    &lt;/div>
-    &lt;div class="col-xs-2">
-        &lt;div class="content">Around&lt;/div>
-    &lt;/div>
-    &lt;div class="col-xs-2">
-        &lt;div class="content">Around&lt;/div>
-    &lt;/div>
-&lt;/div>
-</code></pre>
-      <h3><code>.row-between</code></h3>
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="content content-container">
-            <div class="row row-between">
-              <div class="col-xs-2">
-                <div class="content"></div>
-              </div>
-              <div class="col-xs-2">
-                <div class="content"></div>
-              </div>
-              <div class="col-xs-2">
-                <div class="content"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div><pre><code>&lt;div class="row row-between">
-    &lt;div class="col-xs-2">
-        &lt;div class="content">Between&lt;/div>
-    &lt;/div>
-    &lt;div class="col-xs-2">
-        &lt;div class="content"Between&lt;/div>
-    &lt;/div>
-    &lt;div class="col-xs-2">
-        &lt;div class="content">Between&lt;/div>
     &lt;/div>
 &lt;/div>
 </code></pre>
